@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: laravel-react-app
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        sync: false          # gere com `php artisan key:generate --show` e cole no painel
+      - key: APP_URL
+        sync: false          # ex: https://laravel-react-app.onrender.com
+      # Banco recomendado: Neon ou Supabase (Postgres free permanente),
+      # NÃO o Postgres free do próprio Render (expira em 30 dias).
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        sync: false        # ex: ep-xxxx.us-east-2.aws.neon.tech
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSLMODE
+        value: require
+      - key: LOG_CHANNEL
+        value: stderr        # importante: Render só mostra logs de stdout/stderr
