@@ -18,8 +18,10 @@ services:
       # NÃO o Postgres free do próprio Render (expira em 30 dias).
       - key: DB_CONNECTION
         value: pgsql
+      - key: DB_URL
+        sync: false          # ex: postgres://postgres:password@db.xxx.supabase.co:5432/postgres
       - key: DB_HOST
-        sync: false        # ex: ep-xxxx.us-east-2.aws.neon.tech
+        sync: false          # ex: ep-xxxx.us-east-2.aws.neon.tech
       - key: DB_PORT
         value: "5432"
       - key: DB_DATABASE

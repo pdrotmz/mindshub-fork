@@ -7,8 +7,9 @@
 - **Laravel**
 - **PHP** 
 - **Nginx**
-- **MySQL**
-- **phpMyAdmin** 
+- **PostgreSQL** (Supabase deploy)
+- **MySQL** (local Docker Compose)
+- **Render**
 - **Docker Compose**   
 
 ## 🚀 Como Rodar o Projeto  
@@ -80,6 +81,22 @@ DB_PASSWORD=secret
 
 - **Front-end:** [http://localhost/](http://localhost/)  
 - **phpMyAdmin:** [http://localhost:8082](http://localhost:8082)
+
+## 🚀 Deploy no Render com Supabase  
+
+1. Faça push do repositório para o GitHub, GitLab ou Bitbucket.  
+2. No Render, crie um novo serviço web usando o repositório e mantenha o ambiente em `docker`.  
+3. Use o `Dockerfile` existente e defina estas variáveis de ambiente:  
+   - `APP_ENV=production`  
+   - `APP_DEBUG=false`  
+   - `APP_KEY` com o valor gerado por `php artisan key:generate --show`  
+   - `APP_URL` com a URL do serviço Render  
+   - `DB_CONNECTION=pgsql`  
+   - `DB_URL` com a URL do Supabase (recomendado) ou `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`  
+   - `DB_SSLMODE=require`  
+   - `LOG_CHANNEL=stderr`  
+4. O arquivo `render.yaml` já está configurado para rodar no Render e suporta conexão PostgreSQL/Supabase.  
+5. No primeiro deploy, o container executará `php artisan migrate --force` automaticamente pelo `entrypoint.sh`.  
 
 ## ➕ Comandos Úteis  
 
