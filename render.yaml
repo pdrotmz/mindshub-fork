@@ -14,6 +14,8 @@ services:
         sync: false          # gere com `php artisan key:generate --show` e cole no painel
       - key: APP_URL
         sync: false          # ex: https://laravel-react-app.onrender.com
+      - key: ASSET_URL
+        sync: false          # ex: https://laravel-react-app.onrender.com
       # Banco recomendado: Neon ou Supabase (Postgres free permanente),
       # NÃO o Postgres free do próprio Render (expira em 30 dias).
       - key: DB_CONNECTION

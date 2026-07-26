@@ -90,7 +90,8 @@ DB_PASSWORD=secret
    - `APP_ENV=production`  
    - `APP_DEBUG=false`  
    - `APP_KEY` com o valor gerado por `php artisan key:generate --show`  
-   - `APP_URL` com a URL do serviço Render  
+   - `APP_URL` com a URL do serviço Render (use `https://` sempre)  
+   - `ASSET_URL` com a mesma URL do serviço, se quiser forçar os assets HTTPS  
    - `DB_CONNECTION=pgsql`  
    - `DB_URL` com a URL do Supabase (recomendado) ou `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`  
    - `DB_SSLMODE=require`  
