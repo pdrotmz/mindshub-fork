@@ -63,7 +63,9 @@ COPY docker/php.ini /usr/local/etc/php/conf.d/laravel.ini
 COPY docker/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh \
-    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/build \
+    && rm -rf bootstrap/cache/* \
+    && mkdir -p bootstrap/cache
 
 EXPOSE 8080
 
