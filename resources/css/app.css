@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Responsive fixes */
+@layer components {
+  /* Ensure proper mobile scrolling */
+  html, body {
+    @apply overflow-x-hidden;
+  }
+
+  /* Responsive images */
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Ensure main content doesn't overflow on mobile */
+  main {
+    @apply w-full;
+  }
+
+  /* Better responsive tables */
+  table {
+    @apply w-full text-sm;
+  }
+
+  @screen md {
+    table {
+      @apply text-base;
+    }
+  }
+
+  /* Mobile-first responsive text */
+  @screen sm {
+    body {
+      @apply text-sm;
+    }
+  }
+
+  @screen md {
+    body {
+      @apply text-base;
+    }
+  }
+
+  /* Ensure buttons are touch-friendly on mobile */
+  button, a {
+    @apply min-h-[44px] md:min-h-auto;
+  }
+
+  /* Better input fields on mobile */
+  input, textarea, select {
+    @apply text-base;
+  }
+
+  @screen md {
+    input, textarea, select {
+      @apply text-sm;
+    }
+  }
+}
